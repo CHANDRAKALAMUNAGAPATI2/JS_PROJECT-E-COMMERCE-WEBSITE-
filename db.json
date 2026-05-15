@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "username": "chandhu",
+      "email": "chandhu@gmail.com",
+      "password": "123",
+      "id": "AZLvinjt2Mw"
+    },
+    {
+      "username": "manoj",
+      "email": "manoj@gmail.com",
+      "password": "1234",
+      "id": "AeMDLg59if0"
+    },
+    {
+      "username": "swathi",
+      "email": "swathi@gmail.com",
+      "password": "123",
+      "id": "Qu5v90qTR5U"
+    },
+    {
+      "username": "john",
+      "email": "john@gmail.com",
+      "password": "john123",
+      "id": "UrQV6lMlRSw"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

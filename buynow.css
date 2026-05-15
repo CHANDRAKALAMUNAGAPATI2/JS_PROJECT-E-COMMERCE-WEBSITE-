@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #dbeafe, #f8fafc);
+    min-height: 100vh;
+}
+
+
+
+/* ---------------- MAIN CONTAINER ---------------- */
+
+.container{
+    width: 100%;
+    max-width: 500px;
+
+    margin: 50px auto;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* ---------------- HEADING ---------------- */
+
+.container h2{
+    text-align: center;
+    margin-bottom: 25px;
+    color: #0f172a;
+    font-size: 32px;
+}
+
+/* ---------------- FORM ---------------- */
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap:18px
+}
+
+/* Labels */
+
+label{
+    margin-bottom: 8px;
+    margin-top: 14px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    color:gray;
+}
+
+/* Inputs */
+
+input,
+textarea,
+select{
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 12px;
+
+    outline: none;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+/* Focus */
+
+input:focus,
+textarea:focus,
+select:focus{
+    border-color: #38bdf8;
+
+    box-shadow: 0 0 10px rgba(56,189,248,0.3);
+}
+
+/* Textarea */
+
+textarea{
+    resize: none;
+}
+
+/* ---------------- BUTTONS ---------------- */
+
+button{
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 22px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #0ea5e9;
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover{
+    background: #0284c7;
+
+    transform: translateY(-2px);
+}
+
+/* Hidden Button */
+
+.hidden{
+    display: none;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media(max-width:768px){
+
+    h1{
+        font-size: 20px;
+    }
+}

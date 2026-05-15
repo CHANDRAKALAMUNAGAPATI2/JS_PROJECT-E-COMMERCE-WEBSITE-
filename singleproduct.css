@@ -1,0 +1,281 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background: #f1f5f9;
+    min-height: 100vh;
+    color: #1e293b;
+}
+
+/* ---------------- NAVBAR ---------------- */
+
+nav{
+    width: 100%;
+    padding: 16px 40px;
+    background: linear-gradient(135deg,#0f172a,#1e293b);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+#logo{
+    width: 70px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+#logo:hover{
+    transform: scale(1.08);
+}
+.menu-toggle{
+    display: none;
+    font-size: 28px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+nav ul{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    list-style: none;
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover{
+    color: #38bdf8;
+    font-size: 35px;
+}
+
+.cart-icon{
+    color: white;
+    position: relative;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.cart-icon span{
+    position: absolute;
+
+    top: -10px;
+    right: -12px;
+
+    width: 22px;
+    height: 22px;
+
+    background: #63c74d;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 12px;
+    font-weight: bold;
+}
+/* ---------------- SINGLE PRODUCT SECTION ---------------- */
+
+#product-bg{
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 28px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    animation: fadeIn 0.6s ease;
+}
+
+/* ---------------- PRODUCT IMAGE ---------------- */
+
+#product-bg img{
+    width: 420px;
+    max-width: 100%;
+    height: 420px;
+    object-fit: contain;
+    background: #f8fafc;
+    border-radius: 24px;
+    padding: 20px;
+    transition: 0.4s;
+}
+
+#product-bg img:hover{
+    transform: scale(1.04);
+}
+
+/* ---------------- PRODUCT INFO ---------------- */
+
+#singleinfo{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Product Title */
+
+#singleinfo h2{
+    font-size: 40px;
+    color: #0f172a;
+    font-weight: 700;
+}
+
+/* Description */
+
+#singleinfo p{
+    font-size: 16px;
+    line-height: 1.9;
+    color: #64748b;
+}
+
+/* Price */
+
+#singleinfo h3{
+    font-size: 32px;
+    color: #16a34a;
+    font-weight: 700;
+}
+
+/* Rating */
+
+#singleinfo h4{
+    font-size: 20px;
+    color: #f59e0b;
+    font-weight: 600;
+}
+
+/* ---------------- BUTTON ---------------- */
+
+#singleinfo button{
+    width: fit-content;
+    border: none;
+    outline: none;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 14px;
+    background: linear-gradient(135deg,#22c55e,#16a34a);
+    color: white;
+    cursor: pointer;
+    transition: 0.35s;
+    margin-top: 10px;
+}
+
+#singleinfo button:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(34,197,94,0.35);
+    background: linear-gradient(135deg,#16a34a,#15803d);
+}
+
+/* ---------------- ANIMATION ---------------- */
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media(max-width:950px){
+
+    #product-bg{
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    #singleinfo{
+        align-items: center;
+    }
+
+    #singleinfo h2{
+        font-size: 32px;
+    }
+
+    #singleinfo h3{
+        font-size: 28px;
+    }
+
+    #product-bg img{
+        width: 100%;
+        height: 320px;
+    }
+}
+
+@media(max-width:768px){
+
+   nav{
+        flex-wrap: wrap;
+    }
+
+    .menu-toggle{
+        display: block;
+    }
+
+    nav ul{
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 10px;
+    }
+
+    nav ul.active{
+        display: flex;
+    }
+
+
+    #product-bg{
+        width: 95%;
+        margin: 30px auto;
+    }
+
+    #singleinfo h2{
+        font-size: 26px;
+    }
+
+    #singleinfo p{
+        font-size: 15px;
+    }
+
+    #singleinfo h3{
+        font-size: 24px;
+    }
+
+    #singleinfo h4{
+        font-size: 18px;
+    }
+
+    #singleinfo button{
+        width: 100%;
+    }
+}

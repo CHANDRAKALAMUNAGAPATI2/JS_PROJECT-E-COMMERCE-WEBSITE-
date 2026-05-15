@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
+    <title>QuikBuy</title>
+    
+</head>
+<body>
+   <nav>
+
+    <!-- LEFT SIDE -->
+    <div class="nav-left">
+
+        <img src="./images/logo.png" alt="" id="logo">
+
+        <a href="home.html" class="home-icon">
+            <i class="fas fa-home"></i>
+        </a>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <ul id="nav-links">
+
+        <li>
+            <input type="search" placeholder="Search here.." id="search">
+        </li>
+
+        <li>
+            <a href="index.html">
+                <i class="fas fa-shopping-bag"></i>
+            </a>
+        </li>
+
+        <li>
+            <a href="about.html">
+                <i class="fa-solid fa-address-card"></i>
+            </a>
+        </li>
+
+        <li>
+            <a href="fav.html">
+                <i class="fas fa-heart"></i>
+            </a>
+        </li>
+
+        <li class="cart-icon">
+            <a href="cart.html">
+                <i class="fa-solid fa-cart-plus"></i>
+                <span id="cartLength">0</span>
+            </a>
+        </li>
+
+        <li>
+            <button id="logoutBtn" class="btn btn-danger p-2 m-2">
+                Logout
+            </button>
+        </li>
+
+    </ul>
+
+</nav>
+     <div class="filter-section">
+
+    <div class="filter-left">
+
+        <h4 class="filter-title">Filter By Rating</h4>
+
+        <select class="rating-select" onchange="applyFilters()">
+            <option value="all">All Ratings</option>
+            <option value="5">⭐⭐⭐⭐⭐</option>
+            <option value="4">⭐⭐⭐⭐</option>
+            <option value="3">⭐⭐⭐</option>
+            <option value="2">⭐⭐</option>
+            <option value="1">⭐</option>
+        </select>
+
+    </div>
+
+    <div class="filter-right">
+
+        <h4 class="filter-title">Sort By Price</h4>
+
+        <select id="sorting">
+            <option value="" selected disabled>Select Order</option>
+            <option value="asc">Low to High</option>
+            <option value="desc">High to Low</option>
+        </select>
+
+    </div>
+
+</div>
+
+<div id="categories"></div>
+    <div id="bg">
+
+    </div>
+   
+    <script src="index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js" integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg==" crossorigin="anonymous"></script>
+    
+</body>
+</html>

@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* ---------------- RESET ---------------- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background: #f3f4f6;
+    min-height: 100vh;
+    color: #111827;
+}
+
+/* ---------------- NAVBAR ---------------- */
+
+
+/* ---------------- TITLE ---------------- */
+#title{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* ---------------- SEARCH ---------------- */
+#search{
+    width: 220px;
+    padding: 10px 14px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background: #e5e7eb;
+}
+
+#search:focus{
+    background: #fff;
+    box-shadow: 0 0 8px rgba(59,130,246,0.3);
+}
+
+/* ---------------- CART CONTAINER ---------------- */
+#bg{
+    width: 85%;
+    margin: 25px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* ---------------- CARD (KEEP HORIZONTAL) ---------------- */
+#card{
+    width: 100%;
+    background: white;
+    border-radius: 12px;
+    padding: 10px 18px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+#card:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* ---------------- IMAGE ---------------- */
+#card img{
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+/* ---------------- TEXT ---------------- */
+#card h2{
+    flex: 1;
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+}
+
+#card h3{
+    font-size: 18px;
+    font-weight: 600;
+    color: #16a34a;
+    min-width: 130px;
+}
+
+/* ---------------- BUTTON ---------------- */
+#card button{
+    border: none;
+    outline: none;
+    background: #ef4444;
+    color: white;
+    padding: 9px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#card button:hover{
+    background: #dc2626;
+}
+
+/* ---------------- TOTAL PRICE ---------------- */
+#bg p{
+    width: fit-content;
+    margin: 20px auto 10px;
+    background: white;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 26px;
+    font-weight: 700;
+    color: #111827;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+/* ---------------- EMPTY CART ---------------- */
+#bg h1{
+    text-align: center;
+    font-size: 36px;
+    margin-top: 80px;
+    color: #6b7280;
+}
+
+/* ---------------- BUTTON SECTION ---------------- */
+#cartfunctionality{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-top: 10px;
+}
+
+#cartfunctionality .btn{
+    padding: 11px 22px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* BUTTON COLORS */
+.btn-primary{ background:#2563eb; color:#fff; }
+.btn-primary:hover{ background:#1d4ed8; }
+
+.btn-danger{ background:#ef4444; color:#fff; }
+.btn-danger:hover{ background:#dc2626; }
+
+.btn-success{ background:#16a34a; color:#fff; }
+.btn-success:hover{ background:#15803d; }
+
+/* ---------------- RESPONSIVE ---------------- */
+@media(max-width:768px){
+
+     nav{
+        flex-direction:column;
+        gap:18px;
+        padding:20px;
+    }
+
+    #title{
+        position:static;
+        transform:none;
+        font-size:1.8rem;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    nav a{
+        font-size:24px;
+    }
+
+
+    #search{
+        width: 100%;
+    }
+
+    #bg{
+        width: 95%;
+    }
+
+    /* KEEP STRUCTURE BUT MAKE BETTER FIT */
+    #card{
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #card h2, 
+    #card h3{
+        flex: 1 1 100%;
+    }
+
+    #card button{
+        width: 100%;
+    }
+
+    #cartfunctionality{
+        flex-direction: column;
+    }
+
+    #cartfunctionality .btn{
+        width: 100%;
+    }
+
+    #bg p{
+        font-size: 22px;
+        text-align: center;
+    }
+
+    #bg h1{
+        font-size: 28px;
+    }
+    #quantity{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
