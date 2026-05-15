@@ -26,6 +26,7 @@ let cart = getCartDetails()
 let count = filteredData.length
 cartLength.textContent = count
 
+
 //for create product card
 function createProductCard(products) {
     for (let product of products) {
@@ -107,15 +108,30 @@ function createProductCard(products) {
         fav.style.padding='0px'
 
         fav.onclick = () => {
-            let data = JSON.parse(localStorage.getItem("favlist"))
+            let localfavlist = JSON.parse(localStorage.getItem("favlist"))
+            function getfavItems(){
+                if (localfavlist==null){
+                    return []
+                }
+                else{
+                    let userfavlist = localfavlist.filter((item) => {
+                if (item.liked == localStorage.getItem('login_user')) {
+                    return item
+                    }
+                })
+                return userfavlist
+            
+                }
+            }
 
-            let filteredData = data.filter((item) => {
+            let favlist=getfavItems()
+
+
+            let filteredData = favlist.filter((item) => {
                 return !(item.id == product.id && item.liked == currentuser)
 
 
             })
-
-
             localStorage.setItem("favlist", JSON.stringify(filteredData))
 
             if (filteredData.length == 0) {
@@ -124,7 +140,6 @@ function createProductCard(products) {
                 h1.textContent = 'Your Wishlist is Empty 💔'
                 h1.setAttribute('id', 'empty-msg')
                 bg.appendChild(h1)
-
             }
             else {
 
@@ -150,13 +165,24 @@ function toggleMenu(){
 
 
 //for getting users fav items
-let favlist = JSON.parse(localStorage.getItem("favlist"))
-let userfavlist = favlist.filter((item) => {
-    if (item.liked == localStorage.getItem('login_user')) {
-        return item
+let localfavlist = JSON.parse(localStorage.getItem("favlist"))
+function getfavItems(){
+    if (localfavlist==null){
+        return []
     }
-})
-if (userfavlist.length == 0) {
+    else{
+        let userfavlist = localfavlist.filter((item) => {
+            if (item.liked == localStorage.getItem('login_user')) {
+                return item
+        }
+    })
+    return userfavlist
+
+    }
+}
+
+let favlist=getfavItems()
+if (favlist.length == 0) {
                 bg.textContent = ''
                 let h1 = document.createElement('h1')
                 h1.textContent = 'Your Wishlist is Empty 💔'
@@ -166,12 +192,8 @@ if (userfavlist.length == 0) {
             }
            else{
 
-               createProductCard(userfavlist)
+               createProductCard(favlist)
            }
-
-
-
-
 //Logout functionality
 logoutBtn.onclick = function () {
     localStorage.removeItem('login_user')
