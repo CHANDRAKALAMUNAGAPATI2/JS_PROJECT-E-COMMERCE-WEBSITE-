@@ -1,4 +1,4 @@
-let productBg = document.getElementById('product-bg')
+let bg = document.getElementById('product-bg')
 let cartLength = document.getElementById('cartLength')
 let logoutBtn = document.getElementById('logoutBtn')
 let currentuser = localStorage.getItem('login_user')
@@ -144,8 +144,9 @@ let newfavlist=getfavItems()
     }
 
     singleinfo.append(h2, p, h3, h4, button, fav)
-    productBg.append(img, singleinfo)
+    bg.append(img, singleinfo)
 }
+
 
 //getting single product from api
 async function getSingleProduct() {
