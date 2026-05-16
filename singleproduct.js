@@ -1,4 +1,4 @@
-let bg = document.getElementById('product-bg')
+let productBg = document.getElementById('product-bg')
 let cartLength = document.getElementById('cartLength')
 let logoutBtn = document.getElementById('logoutBtn')
 let currentuser = localStorage.getItem('login_user')
@@ -66,37 +66,53 @@ function singleProductInterface(product) {
     button.textContent = 'Add to cart'
 
     button.onclick = function () {
+            isExist=false;
+
         product.userId = currentuser
+        
 
-        let cart = JSON.parse(localStorage.getItem('cart'))
-        let isExist = false
-        let newcart = cart.map(item => {
-            if (item.id == product.id && item.userId == currentuser) {
-                item.frequency += 1
-                isExist = true
+        function getCartDetails() {
+            let data = JSON.parse(localStorage.getItem('cart'))
+            if (data == null) {
+                return []
             }
-            return item
-        })
+            else {
 
-        if (isExist) {
-            localStorage.setItem('cart', JSON.stringify(newcart))
-            location.replace('index.html')
-
-
-
+                filteredData=data.map(item=>{
+                    if(item.userId==currentuser&&item.id==product.id){
+                        isExist=true
+                        item.frequency+=1
+                    }
+                    return item
+                })
+                return filteredData
+                
+                
+            }
         }
+        let cart = getCartDetails()     
+        console.log(cart);
+        console.log('hh',isExist);
+        
+           
+    
+        if (isExist) {
+
+            localStorage.setItem('cart', JSON.stringify(cart))
+            location.replace('index.html')
+        }
+
         else {
             product.frequency = 1
-            let cart = JSON.parse(localStorage.getItem('cart'))
             cart.push(product)
+            
             localStorage.setItem('cart', JSON.stringify(cart))
             count++
             cartLength.textContent = count
             location.replace('index.html')
-
         }
-
     }
+
 
 
     //fav list 
@@ -144,9 +160,8 @@ let newfavlist=getfavItems()
     }
 
     singleinfo.append(h2, p, h3, h4, button, fav)
-    bg.append(img, singleinfo)
+    productBg.append(img, singleinfo)
 }
-
 
 //getting single product from api
 async function getSingleProduct() {
