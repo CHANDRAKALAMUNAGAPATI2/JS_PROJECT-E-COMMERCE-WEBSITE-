@@ -1,53 +1,55 @@
-let username=document.getElementById('username')
-let password=document.getElementById('password')
+let username=document.getElementById('username') 
 let email=document.getElementById('email')
-let btn=document.getElementById('btn')
+let password=document.getElementById('password')
+let signup=document.getElementById('signup')
 let msg=document.getElementById('msg')
 
-let user=localStorage.getItem('login_user')
-    if(user!=null){
-      location.replace('index.html')
-
-    }
-
-
-
-async function register(){
-
-    let data=await fetch('http://localhost:4000/users?email='+email.value)
-    let jsonData=await data.json()
-    if(jsonData.length>0){
-        msg.textContent='User already Exist'
-        msg.style.color='red'
-        return
-
-
-    }
+        signup.onclick=(e)=>{
+            e.preventDefault()
+            if(username.value.trim()==='' || password.value.trim()==='' || email.value.trim()===''){
+                console.log('hii');
     
+                alert('please fill all fields')
+                return
+    
+            }
+            let data=JSON.parse(localStorage.getItem('usersdata'))
+            function getusersdata(){
+                if(data==null){
+                    return []
+                }
+                else{
+                    return data
+                }
+            }
 
-   let res= await fetch('http://localhost:4000/users',{
-    method:"POST",
-    headers:{
-        'Content-Type':'application/json'
-    },
-    body:JSON.stringify({
-        username:username.value,
-        email:email.value,
-        password:password.value
-    })
-   })
-   location.replace('login.html')
+            let usersdata=getusersdata()
+            let isalreadyExist=true
 
-     
-}
+            if(usersdata.length!=0){
+                console.log(usersdata);
+                for(let singleuser of usersdata){
+                    if(email.value==singleuser.email){
+                        isalreadyExist=false
+                        msg.textContent='User already Exist'
+                        msg.style.color='red'                        
+                    }
+                }
 
+                if(isalreadyExist){
+                    let singleuserinfo={email:email.value,password:password.value}
+                    usersdata.push(singleuserinfo)
+                    localStorage.setItem('usersdata',JSON.stringify(usersdata))   
 
-btn.onclick=function(event){
-    event.preventDefault()
-    if(username.value=='' || password.value=='' || email.value==''){
-        alert("Please fill all fields")
-        return
-    }
+                }
+                           
+            }
+            else{
+                let singleuserinfo={email:email.value,password:password.value}
+                usersdata.push(singleuserinfo)
+                localStorage.setItem('usersdata',JSON.stringify(usersdata))                
+            }
 
-    register()
-}
+        }
+
+// localStorage.removeItem('usersdata')
