@@ -24,22 +24,24 @@ let msg=document.getElementById('msg')
             }
 
             let usersdata=getusersdata()
-            let isalreadyExist=true
+            let isnotExist=true
 
             if(usersdata.length!=0){
                 console.log(usersdata);
                 for(let singleuser of usersdata){
                     if(email.value==singleuser.email){
-                        isalreadyExist=false
+                        isnotExist=false
                         msg.textContent='User already Exist'
                         msg.style.color='red'                        
                     }
                 }
 
-                if(isalreadyExist){
+                if(isnotExist){
                     let singleuserinfo={email:email.value,password:password.value}
                     usersdata.push(singleuserinfo)
-                    localStorage.setItem('usersdata',JSON.stringify(usersdata))   
+                    localStorage.setItem('usersdata',JSON.stringify(usersdata)) 
+                    location.replace('login.html')
+                        
 
                 }
                            
